@@ -3,5 +3,5 @@ class Restaurant < ApplicationRecord
   validates_presence_of :name
 
 # 建立Model資料關聯
-  belongs_to :category, optional: true
+  belongs_to :category
 end
