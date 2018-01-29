@@ -28,7 +28,12 @@
         </div>
         <%= f.submit class: "btn btn-primary" %>
       <% end %>
-    </div><br>
+    </div>
+    
+    <!-- 錯誤訊息 -->
+    <% if @category.errors.any? %>
+      <%= @category.errors.full_messages.to_sentence %>
+    <% end %><br>
 
         </thead>
         <tbody>
