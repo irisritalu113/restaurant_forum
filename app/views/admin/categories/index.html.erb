@@ -1,12 +1,14 @@
 <div class="container">
 
   <h1>餐廳分類總表</h1>
-  
+
   <!-- 連結至各自的位置 -->
   <div>
     <%= link_to 'Restaurant', admin_restaurants_path %> |
     <%= link_to 'Categories', admin_categories_path %>
   </div>
+
+
   
   <div class="row">
 
@@ -17,7 +19,17 @@
           <tr>
             <th>#</th>
             <th>Category Name</th>
-          </tr>
+          </tr>  
+
+    <div class="form-inline" >
+      <%= form_for [:admin, @category] do |f| %>
+        <div class="form-group">
+          <%= f.text_field :name, placeholder: "Category Name",  class: "form-control" %>
+        </div>
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+    </div><br>
+
         </thead>
         <tbody>
           <% @categories.each do |category| %>
