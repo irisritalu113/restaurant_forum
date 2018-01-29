@@ -15,14 +15,16 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>NAME</th>
-            <th>ACTION</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>ACction</th>
           </tr>
         </thead>
         <tbody>
           <% @restaurants.each do |restaurant| %>
           <tr>
             <th scope="row"><%= restaurant.id %></th>
+            <td>[<%= restaurant.category.name %>]</td>
             <td><%= restaurant.name %></td>
             <td>
               <%= link_to 'Show', admin_restaurant_path(restaurant) %>
