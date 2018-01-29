@@ -55,3 +55,4 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
+end
