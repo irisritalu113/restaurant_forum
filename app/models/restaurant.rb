@@ -6,6 +6,7 @@ class Restaurant < ApplicationRecord
   belongs_to :category, optional: true
   delegate :name, to: :category, prefix: true, allow_nil: true
 
-  has_many :comments
+  # 當 Restaurant 物件被刪除時，順便刪除依賴的 Comment
+  has_many :comments, dependent: :destroy
 
 end
