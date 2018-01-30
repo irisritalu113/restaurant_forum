@@ -6,6 +6,9 @@
       <% @categories.each do |category| %>
         <li role="presentation"><%= link_to category.name, category_path(category) %></li>
       <% end %>
+      <li role="presentation">
+        <%= link_to '美食達人', users_path %>
+      </li>
     </ul>
 
     <br>
