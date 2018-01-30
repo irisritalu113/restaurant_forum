@@ -17,6 +17,11 @@ class User < ApplicationRecord
   # 自訂名稱後，Rails 無法自動推論來源名稱，需另加 source 告知 model name
   has_many :favorites, dependent: :destroy
   has_many :favorited_restaurants, through: :favorites, source: :restaurant
+
+  # 「使用者追蹤使用者」的 self-referential relationships 設定
+  # 不需要另加 source，Rails 可從 Followship Model 設定來判斷 followings 指向 User Model
+  has_many :followships, dependent: :destroy
+  has_many :followings, through: :followships
   
   # admin? 讓我們用來判斷單個user是否有 admin 角色，列如：current_user.admin?
   def admin?
