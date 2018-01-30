@@ -10,6 +10,7 @@
 # Category
 
 Category.destroy_all
+User.destroy_all
 
 category_list =[
   { name: "中式料理" },
