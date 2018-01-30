@@ -15,4 +15,9 @@ class Restaurant < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorited_users, through: :favorites, source: :user
 
+  # 如果有在 favorites table 上找到相符的資料，就代表「使用者已經收藏過這家餐廳」。
+  def is_favorited?(user)
+    self.favorited_users.include?(user)
+  end
+
 end
