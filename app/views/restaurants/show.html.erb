@@ -26,16 +26,20 @@
     <hr>
 
     <!-- 顯示與餐廳相關的評論 -->
-    <% @restaurant.comments.each do |comment| %>
+  <% @restaurant.comments.each do |comment| %>
     <div>
       <h4><%= comment.user.email.split('@').first %></h4>
       <p><%= simple_format comment.content %></p>
       <p class="text-muted">
-        <em><%= time_ago_in_words(comment.created_at) %> </em>
-      </p>
+        <em><%= time_ago_in_words(comment.created_at) %> - </em>
+      <!-- 只有管理員能看見「Delete」的按鈕。 -->
+      <% if current_user.admin? %>
+        <%= link_to "Delete", restaurant_comment_path(@restaurant, comment), method: :delete %>
+      <% end %>
+        </p>
     </div>
     <hr>
-    <% end %>
+  <% end %>
 
 <!-- 製作留言及清除按鈕 -->
 <div class="container">

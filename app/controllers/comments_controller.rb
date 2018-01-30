@@ -8,6 +8,16 @@ class CommentsController < ApplicationController
     redirect_to restaurant_path(@restaurant)              #回到restaurants/show
   end
 
+  def destroy
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @comment = Comment.find(params[:id])
+
+    # if current_user.admin?
+    #   @comment.destroy
+    #   redirect_to restaurant_path(@restaurant)
+    # end
+  end
+  
   private
 
   #要透過permit將允許的表單內容登記下來
