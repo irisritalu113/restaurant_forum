@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     # 瀏覽個別餐廳的 Dashboard
     member do
       get :dashboard
+      # 收藏 / 取消收藏
       post :favorite
       post :unfavorite
     end
