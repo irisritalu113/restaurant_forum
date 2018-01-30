@@ -5,4 +5,7 @@ class Restaurant < ApplicationRecord
 # 建立Model資料關聯
   belongs_to :category, optional: true
   delegate :name, to: :category, prefix: true, allow_nil: true
+
+  has_many :comments
+
 end
