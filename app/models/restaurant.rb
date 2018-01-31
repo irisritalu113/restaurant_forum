@@ -20,10 +20,4 @@ class Restaurant < ApplicationRecord
     self.favorited_users.include?(user)
   end
 
-  #新增計算收藏數的方法 
-  def count_favorites
-    self.favorites_count = self.favorites.size
-    self.save
-  end
-
 end
