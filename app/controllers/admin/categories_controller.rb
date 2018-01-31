@@ -1,12 +1,13 @@
 class Admin::CategoriesController < ApplicationController
   
-  
-  
+  before_action :set_category, only: [:update, :destroy]
+
+  # 這裡我們只使用index 這個 template，所以統一 render or redirect 到 index
   def index
     @categories = Category.all
 
     if params[:id]
-      @category = Category.find(params[:id])
+      set_category
     else
       @category = Category.new
     end
@@ -26,8 +27,7 @@ class Admin::CategoriesController < ApplicationController
     end
   end
 
-  def update
-    @category = Category.find(params[:id])
+  def update 
     if @category.update(category_params)
       redirect_to admin_categories_path
       flash[:notice] = "category was successfully updated"
@@ -38,7 +38,6 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy
     flash[:alert] = "category was successfully deleted"
     redirect_to admin_categories_path
