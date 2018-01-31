@@ -2,7 +2,6 @@
 <br>
 <div class="container">
   <div class="row">
-
     <ul class="nav nav-pills nav-pills-center">
       <li role="presentation" class="active"><%= link_to "全部餐廳", root_path %></li>
       <% @categories.each do |category| %>
@@ -12,7 +11,8 @@
 
     <br>
 
-    <%= render partial: "shared/restaurant_list" %>
+    <%= render "shared/restaurant_list" %>
     
   </div>
+  
 </div>

@@ -2,13 +2,13 @@
   <div class="row">
     <ul class="my-nav-tabs nav nav-tabs">
       <li role="presentation" class=<%= "active" unless current_page?(controller: 'restaurants', action: 'feeds') || current_page?(controller: 'restaurants', action: 'ranking') || current_page?(controller: 'users', action: 'index') %>>
-        <%= link_to "餐廳", restaurants_path %>
+        <%= link_to "首頁", restaurants_path %>
       </li>
       <li role="presentation" class=<%= "active" if current_page?(controller: 'restaurants', action: 'feeds') %>>
         <%= link_to "最新動態", feeds_restaurants_path %>
       </li>
       <li role="presentation" class=<%= "active" if current_page?(controller: 'restaurants', action: 'ranking') %>>
-        <%= link_to "TOP 10 人氣餐廳", ranking_restaurants_path %>
+        <%= link_to "TOP10 人氣餐廳", ranking_restaurants_path %>
       </li>
       <li role="presentation" class=<%= "active" if current_page?(controller: 'users', action: 'index') %>>
         <%= link_to "美食達人", users_path %>
